@@ -16,39 +16,54 @@ def get_pet_pages(bsObj):
         pet = link.attrs['href']
         pet_list.append(pet)
 
-def get_pet_info(pet_list):
-    for link in pet_list:
-        html2 = urlopen(link)
+def get_pet_info(url):
+        print(url)
+        html2 = urlopen(url)
         bsObj2 = BeautifulSoup(html2, "html.parser")
         try:
             pet_id = bsObj2.find("h1").get_text()
-            pet_name = bsObj2.find("div", {"class":"price"}).get_text()
-            pet_breed = bsObj2.find("div", {"class":"row"}).select("div > a")[0].get_text()
-            pet_sex = bsObj2.find("div", {"class":"row"}).select("div > a")[1].get_text()
-            pet_age = bsObj2.find("div", {"class":"row"}).select("div > a")[2].get_text()
-            pet_weight = bsObj2.find("div", {"class":"row"}).select("div > a")[3].get_text()
-            pet_location = bsObj2.find("div", {"class":"row"}).select("div > a")[4].get_text()
-            pet_info = bsObj2.find("p", {"class":"p-style2"}).get_text()
         except:
             pet_id = "None"
+        try:
+            pet_name = bsObj2.find("div", {"class":"price"}).get_text()
+        except:
             pet_name = "None"
+        try:
+            pet_breed = bsObj2.find("div", {"class":"row"}).select("div > a")[0].get_text()
+        except:
             pet_breed = "None"
+        try:
+            pet_sex = bsObj2.find("div", {"class":"row"}).select("div > a")[1].get_text()
+        except:
             pet_sex = "None"
+        try:
+            pet_age = bsObj2.find("div", {"class":"row"}).select("div > a")[2].get_text()
+        except:
             pet_age = "None"
+        try:
+            pet_weight = bsObj2.find("div", {"class":"row"}).select("div > a")[3].get_text()
+        except:
             pet_weight = "None"
+        try:
+            pet_location = bsObj2.find("div", {"class":"row"}).select("div > a")[4].get_text()
+        except:
             pet_location = "None"
+        try:
+            pet_info = bsObj2.find("p", {"class":"p-style2"}).get_text()
+        except:
             pet_info = "None"
+
         pet_details = [pet_id, pet_name, pet_breed, pet_sex, pet_age, pet_weight, pet_location, pet_info]
         return pet_details
         time.sleep(2)
 
-def write_csv(pet_list):
+def write_csv(list_of_pet_urls):
     csvFile = open("pets.csv", "w", encoding='utf-8')
     c = csv.writer(csvFile)
     c.writerow(["ID","Name","Breed", "Sex", "Age", "Weight", "Location","Info", "URL", "Image"])
     try:
-        for pet in pet_list:
-            var = get_pet_info(i)
+        for url in list_of_pet_urls:
+            var = get_pet_info(url)
             var.append("https://www.shelterluv.com/publish_animal/" + var[0])
             var.append("img/profile/" + var[1] + "-1.png")
             c.writerow(var)
