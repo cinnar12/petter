@@ -110,11 +110,11 @@ $(document).ready(function(){
     $(".list2").append("#pet-url");
   });
 
-  $("#email-submit").click(function(){
-    $("#email-sent").fadeIn(300);
-    $("#email-sent").delay(1500);
-    $("#email-sent").fadeOut(300);
-  });
+//  $("#email-submit").click(function(){
+//    $("#email-sent").fadeIn(300);
+//    $("#email-sent").delay(1500);
+//    $("#email-sent").fadeOut(300);
+//  });
 
 
   var swiperS = new Swiper ('.swiper-container-scroll', {
