@@ -6,10 +6,10 @@ app = Flask(__name__)
 pet_list = convert_to_dict("pets.csv")
 
 @app.route('/')
-def index():
+def detail():
     for pet in pet_list:
-            pet_dict = pet
-            break
+        pet_dict = pet
+        break
     return render_template('profile.html', pet=pet_dict)
 
 if __name__ == '__main__':

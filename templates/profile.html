@@ -2,22 +2,24 @@
 
 {% block content %}
 
-	<div class="swiper-container swiper-container-scroll">
-	  <div class="swiper-wrapper">
-		<div class="swiper-slide">
-		  <div id="image-container" class="swiper-container swiper-container-h swiper-container-autoheight">
-			<div class="swiper-wrapper">
-			  <img class="swiper-slide" src="{{ url_for('static', filename = 'img/profile/' + pet['Name'] + '-1.png') }}" alt="{{pet['Name']}}">
-			</div>
-			<div class="swiper-pagination"></div>
-		  </div>
+			<div class="swiper-container swiper-container-scroll">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div id="image-container" class="swiper-container swiper-container-h swiper-container-autoheight">
+							<div class="swiper-wrapper">
+								<img class="swiper-slide" src="{{ url_for('static', filename = 'img/profile/' + pet['Name'] + '-1.png') }}" alt="{{pet['Name']}}">
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
 
-		  <div class="info-container">
-			<h3>{{pet['Name']}}</h3><p>{{pet['Breed']}} <br>{{pet['Sex']}} {{pet['Age']}} {{pet['Weight']}} <br> {{pet['Location']}} <br> More Info: {{pet['Info']}}
-			</p>
-		  </div>
-		</div>
-	  </div>
-	</div>
+						<div class="info-container">
+							<h3>{{pet['Name']}}</h3><p>{{pet['Breed']}} <br>{{pet['Sex']}} {{pet['Age']}} {{pet['Weight']}} <br> {{pet['Location']}} <br> More Info: {{pet['Info']}}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
 
 {% endblock %}
