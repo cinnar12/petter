@@ -4,6 +4,8 @@ $(document).ready(function(){
   $("#about-petter").hide();
   $("#app-main").hide();
   $("#start-menu").hide();
+  $("#list-page").hide();
+  $(".notification").hide();
 
   $("#welcome-logo").hide();
   $("#welcome-text h1").hide();
@@ -69,8 +71,13 @@ $(document).ready(function(){
 
   $("#interest-submit").click(function(){
     $("#interest-form").fadeOut(300);
+    $("#list-page").fadeOut(300);
     $("#app-main").delay(300);
+    $("#pet-browser").delay(300);
+    $(".actions").delay(300);
+    $(".actions").fadeIn(300);
     $("#app-main").fadeIn(300);
+    $("#pet-browser").fadeIn(300);
   });
 
   $("#back").click(function(){
@@ -79,12 +86,27 @@ $(document).ready(function(){
     $("#interest-form").fadeIn(300);
   });
 
+  $("#list").click(function(){
+    $("#pet-browser").fadeOut(300);
+    $(".actions").fadeOut(300);
+    $("#list-page").delay(300);
+    $("#list-page").fadeIn(300);
+  });
+
+  $("#browse").click(function(){
+    $("#list-page").fadeOut(300);
+    $(".actions").delay(300);
+    $(".actions").fadeIn(300);
+    $("#pet-browser").delay(300);
+    $("#pet-browser").fadeIn(300);
+  });
+
   var swiperS = new Swiper ('.swiper-container-scroll', {
     direction: 'vertical',
     autoHeight: true,
-    scrollbar: {
-       el: '.swiper-scrollbar',
-     },
+    //scrollbar: {
+    //   el: '.swiper-scrollbar',
+    //},
   });
 
 });
@@ -101,7 +123,7 @@ var swiperH = new Swiper ('.swiper-container-h', {
 
 //map
 
-var mymap = L.map('mapid').setView([29.654 , -82.330], 11.6);
+var mymap = L.map('mapid').setView([29.654 , -82.330], 10.5);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/cinnar12/cja4q8sws2u1i2rrybmqogiyx/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2lubmFyMTIiLCJhIjoiY2pnbW05bTIzMDBrZzJ3b2dyZHJuM294YyJ9.KlNNs1K3UteMLBMyBYoZOA', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',

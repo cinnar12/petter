@@ -1,0 +1,9 @@
+places =
+[
+{"placeName":"<b>Alachua County Animal Services Department</b><br>3400 NE 53rd Ave<br>Gainesville<br>FL 32609<br>(352) 264-6870","latitude":29.705894,"longitude":-82.281303} , 
+{"placeName":"<b>Alachua County Humane Society</b><br>4205 NW 6th St<br>Gainesville<br>FL 32609<br>(352) 373-5855","latitude":29.694676,"longitude":-82.332857},
+{"placeName":"<b>Earth Pets Natural Pet Market</b><br>500, F, 2077, NW 60th St<br>Gainesville<br>FL 32607<br>(352) 331-5123","latitude":29.657727,"longitude":-82.407108},
+{"placeName":"<b>PetSmart</b><br>3736 SW Archer Rd<br>Gainesville<br>FL 32608<br>(352) 380-0112","latitude":29.627082,"longitude":-82.380646},
+{"placeName":"<b>Gainesville Pet Rescue Inc</b><br>5403 SW Archer Rd<br>Gainesville<br>FL 32608<br>(352) 692-4773","latitude":29.613941,"longitude":-82.400902},
+{"placeName":"<b>Haile's Angels Pet Rescue</b><br>5231 SW 91st Dr<br>Gainesville<br>FL 32608<br>(352) 505-0302","latitude":29.609583,"longitude":-82.439125}
+]

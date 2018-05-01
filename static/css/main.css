@@ -217,15 +217,20 @@ h2 {
 }
 
 #back {
-  width: 23px;
+  color: darkgrey;
+  font-size: 14pt;
+  background: none;
+  border: none;
+  height: 30px;
+  width: 30px;
   grid-column-start: 1;
   grid-column-end: 2;
   justify-self: center;
   align-self: center;
 }
 
-#logo {
-  width: 50px;
+#browse {
+  width: 25px;
   grid-column-start: 2;
   grid-column-end: 3;
   justify-self: center;
@@ -265,23 +270,79 @@ h2 {
   position: fixed;
 }
 
-#woops {
-  width: 50px;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  justify-self: center;
+.action-buttons {
+  border: 2px solid darkgrey;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 50%;
+  transition: .2s;
 }
 
-#reject {
-  width: 50px;
+.action-buttons:hover {
+  background: lightgrey;
+  border-color: lightgrey;
+}
+
+.action-buttons:focus {
+  background: lightgrey;
+  border-color: lightgrey;
+}
+
+#woops {
+  width: 80px;
   grid-column-start: 2;
   grid-column-end: 3;
   justify-self: center;
 }
 
+#reject {
+  width: 80px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  justify-self: center;
+}
+
 #like {
-  width: 50px;
+  width: 80px;
   grid-column-start: 3;
   grid-column-end: 4;
   justify-self: center;
+}
+
+.info-container {
+  text-align: left;
+}
+
+#list-page {
+  margin-top: 20px;
+}
+
+.list-item {
+  box-sizing: border-box;
+  padding: .5em 1em;
+  text-align: left;
+  margin: -1px 0;
+  border: 1px solid lightgrey;
+}
+
+.list-item p, .list-item h3 {
+  margin: 0;
+}
+
+.notification {
+  background: darkgrey;
+  color: white;
+  position: absolute;
+  width: 175px;
+  text-align: center;
+  display: block;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 5;
+  top: 5.5em;
+  box-sizing: border-box;
+  padding: .5em 0;
+  border: 2px solid darkgrey;
+  border-radius: 50px;
 }
