@@ -105,6 +105,9 @@ $(document).ready(function(){
     $("#like-added").fadeIn(300);
     $("#like-added").delay(1500);
     $("#like-added").fadeOut(300);
+    $("#list-page").append(" <div class='list-item'> <h3 class='list1'></h3> <p class='list2'></p> </div> ");
+    $(".list1").append("#pet-name");
+    $(".list2").append("#pet-url");
   });
 
   $("#email-submit").click(function(){
