@@ -69,6 +69,18 @@ $(document).ready(function(){
     $("#interest-form").fadeIn(300);
   });
 
+  $("#dogs").click(function(){
+    doglink = document.querySelectorAll("a[href='/dogs/']");
+    $("#pet-browser").remove(catlink);
+    $("#pet-browser").append(doglink);
+  });
+
+  $("#cats").click(function(){
+    catlink = document.querySelectorAll("a[href='/cats/']");
+    $("#pet-browser").remove(doglink);
+    $("#pet-browser").append(catlink);
+  });
+
   $("#interest-submit").click(function(){
     $("#interest-form").fadeOut(300);
     $("#list-page").fadeOut(300);
@@ -99,6 +111,10 @@ $(document).ready(function(){
     $(".actions").fadeIn(300);
     $("#pet-browser").delay(300);
     $("#pet-browser").fadeIn(300);
+  });
+
+  $("#reject").click(function(){
+    $("#browse-temp-fill").remove();
   });
 
   $("#like").click(function(){
