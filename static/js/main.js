@@ -101,6 +101,19 @@ $(document).ready(function(){
     $("#pet-browser").fadeIn(300);
   });
 
+  $("#like").click(function(){
+    $("#like-added").fadeIn(300);
+    $("#like-added").delay(1500);
+    $("#like-added").fadeOut(300);
+  });
+
+  $("#email-submit").click(function(){
+    $("#email-sent").fadeIn(300);
+    $("#email-sent").delay(1500);
+    $("#email-sent").fadeOut(300);
+  });
+
+
   var swiperS = new Swiper ('.swiper-container-scroll', {
     direction: 'vertical',
     autoHeight: true,
@@ -122,7 +135,6 @@ var swiperH = new Swiper ('.swiper-container-h', {
 });
 
 //map
-
 var mymap = L.map('mapid').setView([29.654 , -82.330], 10.5);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/cinnar12/cja4q8sws2u1i2rrybmqogiyx/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2lubmFyMTIiLCJhIjoiY2pnbW05bTIzMDBrZzJ3b2dyZHJuM294YyJ9.KlNNs1K3UteMLBMyBYoZOA', {

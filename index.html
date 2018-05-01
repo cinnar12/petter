@@ -106,7 +106,7 @@
               <label class="interest-buttons" for="senior">5+ YRS</label>
             </div>
 
-            <input id="interest-submit" type="submit" value="SUBMIT">
+            <input id="interest-submit" class="submit-button" type="submit" value="SUBMIT">
           </form>
         </div>
         <!-- End of Interest Filter Form -->
@@ -121,21 +121,26 @@
 
           <div id="pet-browser">
 
-            <span class="notification"> Added to your list!</span>
+            <span id="like-added" class="notification"> Added to your list!</span>
 
-            <div id="image-container" class="swiper-container swiper-container-h swiper-container-autoheight">
+            <div class="swiper-container swiper-container-scroll">
               <div class="swiper-wrapper">
-                <img class="swiper-slide" src="static/img/doggo.png" alt="doggo">
-                <img class="swiper-slide" src="static/img/doggo2.png" alt="doggo2">
-                <img class="swiper-slide" src="static/img/doggo3.png" alt="doggo3">
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
+                <div class="swiper-slide">
+                  <div id="image-container" class="swiper-container swiper-container-h swiper-container-autoheight">
+                    <div class="swiper-wrapper">
+                      <img class="swiper-slide" src="static/img/doggo.png" alt="doggo">
+                      <img class="swiper-slide" src="static/img/doggo2.png" alt="doggo2">
+                      <img class="swiper-slide" src="static/img/doggo3.png" alt="doggo3">
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
 
-            <div class="info-container">
-              <h3></h3>
-              <p><br>
-              </p>
+                  <div class="info-container">
+                    <h3>Dog Name</h3><p>Breed: {{}} <br> Sex: {{}} Age: {{}} Weight: {{}} <br> Location: {{}} <br> More Info: Ranger's adoption fee has been sponsored, which means he can become a member of your family for FREE! A huge thank you to the Jamie Kistler for helping this handsome boy find his forever home. Ranger is a two-year-old bulldog mix. He prefers an adult-only home, but he's very friendly with other dogs. This smart boy knows sit, but he's ready to learn more tricks! Come out to the Alachua County Humane Society to meet Ranger. He can't wait to meet you!
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -147,6 +152,9 @@
           </div>
 
           <div id="list-page">
+
+            <span id="email-sent" class="notification"> Sent to your email!</span>
+
             <div class="list-item">
               <h3>Animal's Name</h3>
               <p>This is an example of a URL.<p>
@@ -159,6 +167,12 @@
               <h3>Animal's Name</h3>
               <p>This is an example of a URL.<p>
             </div>
+
+            <form>
+              <input type="text" class="email-option" id="email" name="email" placeholder="Your Email" required>
+              <input id="email-submit" class="submit-button" type="submit" value="EMAIL LINKS">
+            </form>
+
           </div>
 
         </div>
