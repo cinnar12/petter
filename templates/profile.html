@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -13,7 +13,7 @@
 		  </div>
 
 		  <div class="info-container">
-			<h3>{{pet['Name']}}</h3><p>Breed: {{pet['Breed']}} <br> Sex: {{pet['Sex']}} Age: {{pet['Age']}} Weight: {{pet['Weight']}} <br> Location: {{pet['Location']}} <br> More Info: {{pet['Info']}}
+			<h3>{{pet['Name']}}</h3><p>{{pet['Breed']}} <br>{{pet['Sex']}} {{pet['Age']}} {{pet['Weight']}} <br> {{pet['Location']}} <br> More Info: {{pet['Info']}}
 			</p>
 		  </div>
 		</div>
