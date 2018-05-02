@@ -1,27 +1,21 @@
+{% extends 'base.html' %}
+
 {% block content %}
-<div class="swiper-container swiper-container-h">
-	<div class="swiper-wrapper">
-		<div class="swiper-slide">
+	{% for pet in pet %}
+		<div class="swiper-slide {{pet['Breed']}}">
 
 			<div class="swiper-container swiper-container-scroll">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<div id="image-container" class="swiper-container swiper-container-h swiper-container-autoheight">
-							<div class="swiper-wrapper">
-								<img class="swiper-slide" src="{{ url_for('static', filename = 'img/profile/' + pet['Name'] + '-1.png') }}" alt="{{pet['Name']}}">
-							</div>
-							<div class="swiper-pagination"></div>
-						</div>
-
+						<img class="slide-img-container" src="{{ url_for('static', filename = 'img/profile/' + pet['Name'] + '-1.png') }}" alt="{{pet['Name']}}">
 						<div class="info-container">
-							<h3 id="pet-name">{{pet['Name']}}</h3><p>{{pet['Breed']}} <br>{{pet['Sex']}} {{pet['Age']}} {{pet['Weight']}} <br> {{pet['Location']}} <br> More Info: {{pet['Info']}} <br> <a id="pet-url" href="{{pet['URL']}}" target="_blank">Website</a>
-							</p>
+							<h3>{{pet['Name']}}</h3>
+							<p>{{pet['Breed']}} <br>{{pet['Sex']}} {{pet['Age']}} {{pet['Weight']}} <br> {{pet['Location']}} <br> More Info: {{pet['Info']}} <br><a href="{{pet['URL']}}" target="_blank">Website</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 
 		</div>
-	</div>
-</div>
+	{% endfor %}
 {% endblock %}

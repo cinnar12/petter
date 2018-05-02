@@ -7,7 +7,7 @@ body {
 
 #welcome {
   background: linear-gradient(-120deg, teal, #118e82, #209c85, #30a987, #40b78a, #50c48d, #60d290, #70e093, lightgreen);
-  z-index: 2;
+  z-index: 5;
   color: white;
 }
 
@@ -300,7 +300,6 @@ h2 {
 #list-page {
   margin-top: 20px;
   height: 70vh;
-  overflow: hidden;
 }
 
 .list-item {
@@ -333,10 +332,17 @@ h2 {
   border-radius: 50px;
 }
 
+.slide-img-container {
+  width: 100%;
+}
+
 #pet-browser {
   margin-top: 1.5em;
-  max-height: 71.5vh;
   overflow: hidden;
+}
+
+#browser-wrapper .swiper-slide {
+  height: 71.5vh !important;
 }
 
 .submit-button {

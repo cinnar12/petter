@@ -1,0 +1,175 @@
+@app.route('/')
+def index():
+    return render_template('base.html')
+
+@app.route('/')
+def index():
+    for pet in pet_list:
+            pet_dict = pet
+            break
+    return render_template('profile.html', pet=pet_dict)
+
+@app.route('/<type>/<num>.html')
+def detail(num):
+    for pet in pet_list:
+        if any("dog" in pet):
+            type = "dog"
+        else:
+            type = "cat"
+        if pet['ID'] == num:
+            pet_dict = pet
+            break
+    return render_template('profile.html', pet=pet_dict)
+
+    @app.route('/<type>/<num>.html')
+    def detail(num):
+        print("hello world")
+        for pet in pet_list:
+            if any("dog" in pet):
+                type = "dog"
+            else:
+                type = "cat"
+            if pet['ID'] == num:
+                pet_dict = pet
+                break
+        return render_template('profile.html', pet=pet_dict)
+
+
+
+
+
+
+
+        @app.route('/dog/<name>.html')
+        def doginfo(name):
+            for pet in pet_list:
+                if pet['Name'] == name and 'dog' in pet['Breed']:
+                    pet_dict = pet
+                    break
+            return jsonify({'data': render_template('profile.html', pet=pet_dict)})
+
+        @app.route('/cat/<name>.html')
+        def catinfo(name):
+            for pet in pet_list:
+                if pet['Name'] == name and 'dog' not in pet['Breed']:
+                    pet_dict = pet
+                    break
+            return render_template('profile.html', pet=pet_dict)
+
+
+
+            catjson = '{{cat|tojson|safe}}';
+            dogjson = '{{dog|tojson|safe}}';
+
+            var catparsed = JSON.parse(catjson);
+            var dogparsed = JSON.parse(dogjson);
+
+
+
+
+
+
+        @app.route('/dog/<num>.html')
+        def doginfo(num):
+            for pet in pet_list:
+                if pet['ID'] == num and 'dog' in pet['Breed']:
+                    pet_dict = pet
+                    break
+            return jsonify({'data': render_template('profile.html', pet=pet_dict)})
+
+        @app.route('/cat/<num>.html')
+        def catinfo(num):
+            for pet in pet_list:
+                if pet['ID'] == num and 'dog' not in pet['Breed']:
+                    pet_dict = pet
+                    break
+            return render_template('profile.html', pet=pet_dict)
+
+
+
+            from flask import Flask, render_template
+            from modules import convert_to_dict, make_ordinal
+
+            app = Flask(__name__)
+            application = app
+
+            pet_list = convert_to_dict("pets.csv")
+
+            @app.route('/')
+            def index():
+                dogname_list = []
+                dog_list = []
+
+                catname_list = []
+                cat_list = []
+
+                for pet in pet_list:
+                    if 'dog' in pet['Breed']:
+                        dogname_list.append(pet['Name'])
+                        dog_list.append('dog')
+                    else:
+                        catname_list.append(pet['Name'])
+                        cat_list.append('cat')
+                    pet_dict = pet
+                    break
+                dogpairs_list = zip(dog_list, dogname_list)
+                catpairs_list = zip(cat_list, catname_list)
+
+                return render_template('base.html', pet=pet_dict, dogs=dogpairs_list, cats=catpairs_list)
+
+
+            @app.route('/dog/<num>.html')
+            def doginfo(num):
+                for pet in pet_list:
+                    if pet['Name'] == num and 'dog' in pet['Breed']:
+                        pet_dict = pet
+                        break
+                return render_template('profile.html', pet=pet_dict)
+
+
+            @app.route('/cat/<num>.html')
+            def catinfo(num):
+                for pet in pet_list:
+                    if pet['Name'] == num and 'dog' not in pet['Breed']:
+                        pet_dict = pet
+                        break
+                return render_template('profile.html', pet=pet_dict)
+
+            if __name__ == '__main__':
+                app.run(debug=True)
+
+
+
+
+
+                @app.route('/')
+                def index():
+                    dogname_list = []
+                    dog_list = []
+                    catname_list = []
+                    cat_list = []
+
+                    pets_dict = pet_list
+                    img_dict = {}
+
+                    for pet in pet_list:
+                        petimg = 'img/profile/' + pet['Name'] + '-1.png'
+                        if os.path.isfile(petimg):
+                            return petimg
+                        else:
+                            petimg = 'img/profile/default.png'
+                        img_dict['imgpath'] = petimg
+
+                    for pet in pet_list:
+                        if 'dog' in pet['Breed']:
+                            dogname_list.append(pet['Name'])
+                            dog_list.append('dog')
+                        else:
+                            catname_list.append(pet['Name'])
+                            cat_list.append('cat')
+                        pet_dict = pet
+                        break
+
+                    dogpairs_list = zip(dog_list, dogname_list)
+                    catpairs_list = zip(cat_list, catname_list)
+                    return render_template('profile.html', pets=pets_dict, pet=pet_dict, img=img_dict, dogs=dogpairs_list, cats=catpairs_list)

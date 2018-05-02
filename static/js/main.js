@@ -12,6 +12,13 @@ $(document).ready(function(){
   $("#welcome-text p").hide();
   $("#swipe-start").hide();
   $("#welcome-desc").hide();
+
+  $("#welcome-logo").delay(2000);
+  $("#welcome-text h1").delay(2000);
+  $("#welcome-text p").delay(2000);
+  $("#swipe-start").delay(2000);
+  $("#welcome-desc").delay(2000);
+
   $("#welcome-logo").fadeIn(900);
   $("#welcome-text h1").fadeIn(900);
   $("#welcome-text p").delay(1000);
@@ -21,6 +28,7 @@ $(document).ready(function(){
   $("#swipe-start").fadeIn(900);
   $("#welcome-desc").fadeIn(900);
   $("#start-menu").fadeIn(900);
+
   var swiperV = new Swiper ('.swiper-container-v', {
     direction: 'vertical',
     loop: false,
@@ -32,6 +40,9 @@ $(document).ready(function(){
       nextEl: '.swiper-button-next'
     },
   });
+});
+
+$(document).ready(function(){
 
   $("#start-about").click(function(){
     $("#start-menu").fadeOut(300);
@@ -70,15 +81,13 @@ $(document).ready(function(){
   });
 
   $("#dogs").click(function(){
-    doglink = document.querySelectorAll("a[href='/dogs/']");
-    $("#pet-browser").remove(catlink);
-    $("#pet-browser").append(doglink);
+    $( "div[class*=Dog]" ).show();
+    $( "div[class*=Cat]" ).hide();
   });
 
   $("#cats").click(function(){
-    catlink = document.querySelectorAll("a[href='/cats/']");
-    $("#pet-browser").remove(doglink);
-    $("#pet-browser").append(catlink);
+    $( "div[class*=Cat]" ).show();
+    $( "div[class*=Dog]" ).hide();
   });
 
   $("#interest-submit").click(function(){
@@ -114,16 +123,21 @@ $(document).ready(function(){
   });
 
   $("#reject").click(function(){
-    $("#browse-temp-fill").remove();
+    swiperH.slideNext();
+  });
+
+  $("#woops").click(function(){
+    swiperH.slidePrev();
   });
 
   $("#like").click(function(){
+    swiperH.slideNext();
     $("#like-added").fadeIn(300);
     $("#like-added").delay(1500);
     $("#like-added").fadeOut(300);
-    $("#list-page").append(" <div class='list-item'> <h3 class='list1'></h3> <p class='list2'></p> </div> ");
-    $(".list1").append("#pet-name");
-    $(".list2").append("#pet-url");
+    petname = $("#browser-wrapper > .swiper-slide-active").find('h3').text();
+    peturl = $("#browser-wrapper > .swiper-slide-active").find('a').attr("href");
+    $("#list-page").append(" <div class='list-item'> <h3 class='list1'> " + petname + "</h3> <p class='list2'>" + peturl + "</p> </div> ");
   });
 
 //  $("#email-submit").click(function(){
@@ -131,20 +145,19 @@ $(document).ready(function(){
 //    $("#email-sent").delay(1500);
 //    $("#email-sent").fadeOut(300);
 //  });
+});
 
-
+$(document).ready(function(){
   var swiperS = new Swiper ('.swiper-container-scroll', {
     direction: 'vertical',
     autoHeight: true,
-    //scrollbar: {
-    //   el: '.swiper-scrollbar',
-    //},
   });
 
 });
 
 var swiperH = new Swiper ('.swiper-container-h', {
   direction: 'horizontal',
+  autoHeight: true,
   loop: false,
   speed: 500,
   pagination: {
